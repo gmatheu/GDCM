@@ -23,6 +23,7 @@ setup(
                 '-DGDCM_DOCUMENTATION_SKIP_MANPAGES:BOOL=TRUE',
                 '-DGDCM_DOCUMENTATION:BOOL=FALSE',
                 '-DGDCM_BUILD_APPLICATIONS:BOOL=ON',
+                '-DGDCM_BUILD_DOCBOOK_MANPAGES:BOOL=OFF',
                 '-DGDCM_BUILD_SHARED_LIBS:BOOL=OFF'],
     cmake_process_manifest_hook=exclude_static_libraries
 )
