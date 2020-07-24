@@ -11,6 +11,9 @@ setup(
     description="a minimal example package (cpp version)",
     author='The scikit-build team',
     license="Simplified BSD license,",
+    setup_requires=[
+        'cmake'
+    ],
     # packages=['gdcm'],
     # package_dir={
         # 'gdcm': '.',
