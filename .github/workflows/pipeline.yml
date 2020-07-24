@@ -11,8 +11,8 @@ jobs:
         os: [ubuntu-18.04, windows-latest, macos-latest]
     env:
           CIBW_BUILD_VERBOSITY: 3
-          CIBW_BUILD: "cp37-manylinux_x86_64"
-          CIBW_SKIP: "cp37-macosx_x86_64 cp37-win_amd64"
+          CIBW_BUILD: "cp37-macosx_x86_64 "
+          CIBW_SKIP: "cp37-manylinux_x86_64 cp37-win_amd64"
           CIBW_BEFORE_BUILD: "pip install scikit-build"
           CIBW_BEFORE_ALL_LINUX: "yum install -y swig cmake"
     steps:
