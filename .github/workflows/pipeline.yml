@@ -11,7 +11,7 @@ jobs:
         os: [ubuntu-18.04, windows-latest, macos-latest]
     env:
           CIBW_BEFORE_ALL: "python -m pip install scikit-build"
-          CIBW_BEFORE_ALL_LINUX: "apt-get -y cmake python3-dev build-essential swig wget"
+          CIBW_BEFORE_ALL_LINUX: "yum install -y swig cmake"
     steps:
       - uses: actions/checkout@v2
 
