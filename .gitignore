@@ -10,3 +10,7 @@ CMakeLists.txt.user*
 
 # kdevelop files
 *.kdev*
+
+_skbuild/
+dist/
+gdcm.egg-info/
