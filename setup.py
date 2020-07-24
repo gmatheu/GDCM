@@ -19,7 +19,10 @@ setup(
         "": ["*"]
     },
     long_description=open('README.txt').read(),
-    cmake_args=['-DGDCM_WRAP_PYTHON:BOOL=OFF', '-DGDCM_BUILD_APPLICATIONS:BOOL=ON', '-DGDCM_BUILD_SHARED_LIBS:BOOL=OFF'],
+    cmake_args=['-DGDCM_WRAP_PYTHON:BOOL=OFF',
+                '-DGDCM_DOCUMENTATION:BOOL=OFF',
+                '-DGDCM_BUILD_APPLICATIONS:BOOL=ON',
+                '-DGDCM_BUILD_SHARED_LIBS:BOOL=OFF'],
     cmake_process_manifest_hook=exclude_static_libraries
 )
 
