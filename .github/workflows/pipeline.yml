@@ -43,12 +43,14 @@ jobs:
         with:
           path: ./wheelhouse
 
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v2.x
       - uses: marvinpinto/action-automatic-releases@v1.0.0
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ GITHUB_REF }}"
+          automatic_release_tag: "${{ env.GITHUB_REF_SLUG }}"
           prerelease: true
-          title: "Development Build: ${{ GITHUB_REF }}"
+          title: "Development Build: ${{ env.GITHUB_REF_SLUG }}"
           files: |
             ./wheelhouse/*.whl
             ./dist/*.tar.gz
