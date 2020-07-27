@@ -6,18 +6,14 @@ def exclude_static_libraries(cmake_manifest):
     return list(filter(lambda name: not (name.endswith('.a')), cmake_manifest))
 
 setup(
-    name="gdcm",
+    name="gdcm-tools",
     version="2.6.9",
-    description="a minimal example package (cpp version)",
+    description="GDCM tools wrapped into a Python package",
     author='The scikit-build team',
     license="Simplified BSD license,",
     setup_requires=[
         'cmake'
     ],
-    # packages=['gdcm'],
-    # package_dir={
-        # 'gdcm': '.',
-    # },
     package_data={
         "": ["*"]
     },
