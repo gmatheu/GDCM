@@ -46,9 +46,9 @@ jobs:
       - uses: marvinpinto/action-automatic-releases@v1.0.0
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ env.GITHUB_REF }}"
+          automatic_release_tag: "${{ GITHUB_REF }}"
           prerelease: true
-          title: "Development Build: ${{ env.GITHUB_REF }}"
+          title: "Development Build: ${{ GITHUB_REF }}"
           files: |
             ./wheelhouse/*.whl
             ./dist/*.tar.gz
