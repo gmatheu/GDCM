@@ -1,6 +1,9 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "*_build"
 
 jobs:
   build_wheels:
@@ -32,6 +35,20 @@ jobs:
         run: |
           python -m cibuildwheel --output-dir wheelhouse
 
+      - name: Source dist
+        run: |
+          python setup.py sdist
+
       - uses: kittaakos/upload-artifact-as-is@v0
         with:
           path: ./wheelhouse
+
+      - uses: marvinpinto/action-automatic-releases@v1.0.0
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ env.GITHUB_REF }}"
+          prerelease: true
+          title: "Development Build: ${{ env.GITHUB_REF }}"
+          files: |
+            ./wheelhouse/*.whl
+            ./dist/*.tar.gz
