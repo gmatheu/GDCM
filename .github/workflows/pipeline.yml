@@ -67,5 +67,5 @@ jobs:
           prerelease: true
           title: "Development Build: ${{ env.GITHUB_REF_SLUG }}"
           files: |
-            ./wheelhouse/*.whl
-            ./dist/*.tar.gz
+            ./wheels_*/*.whl
+            ./dist_ubuntu-18.04/*.tar.gz
