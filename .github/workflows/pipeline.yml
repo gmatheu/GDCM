@@ -39,10 +39,25 @@ jobs:
         run: |
           python setup.py sdist
 
-      - uses: kittaakos/upload-artifact-as-is@v0
+      - uses: actions/upload-artifact@v2
         with:
+          name: wheels_${{ matrix.os }}
           path: ./wheelhouse
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist_${{ matrix.os }}
+          path: ./dist
 
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
+    needs: [build_wheels]
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: .
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@2.0.0
       - uses: marvinpinto/action-automatic-releases@v1.0.0
