@@ -4,10 +4,7 @@ on:
   push:
     branches:
       - "*_build"
-  workflow_dispatch:
-    inputs:
-      tags:
-        description: 'Manual exectution'  
+
         
 jobs:
   build_wheels:
