@@ -17,6 +17,7 @@ setup(
     package_data={
         "": ["*"]
     },
+    py_modules=['cmake'],
     long_description=open('README.txt').read(),
     cmake_args=['-DGDCM_WRAP_PYTHON:BOOL=OFF',
                 '-DGDCM_DOCUMENTATION_SKIP_MANPAGES:BOOL=TRUE',
