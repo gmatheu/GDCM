@@ -12,7 +12,9 @@ setup(
     author='The scikit-build team',
     license="Simplified BSD license,",
     setup_requires=[
-        'cmake'
+        'cmake',
+        'setuptools>=42',
+        'cffi>=1.0.0'
     ],
     package_data={
         "": ["*"]
