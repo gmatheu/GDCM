@@ -15,7 +15,7 @@ jobs:
         os: [ubuntu-18.04, windows-latest, macos-latest]
     env:
           CIBW_BUILD_VERBOSITY: 3
-          CIBW_BUILD: "cp37-manylinux_x86_64 cp37-macosx_x86_64 cp37-win_amd64"
+          CIBW_BUILD: "cp311-manylinux_x86_64 cp311-macosx_x86_64 cp311-win_amd64"
           CIBW_SKIP: ""
           CIBW_BEFORE_ALL_LINUX: "yum install -y swig cmake"
           CIBW_BEFORE_ALL_WINDOWS: "choco install visualstudio2017buildtools -f -y && choco install cmake -f -y --installargs 'ADD_CMAKE_TO_PATH=System' && choco install ninja -f -y"
@@ -23,10 +23,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
+        name: Install Python
+        with:
+          python-version: '3.11'
 
       - name: Install cibuildwheel
         run: |
-          python -m pip install cibuildwheel==2.23.3 scikit-build
+          python -m pip install cibuildwheel==3.23.3 scikit-build
 
       - name: Build wheels
         run: |
