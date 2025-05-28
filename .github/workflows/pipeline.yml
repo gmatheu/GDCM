@@ -12,10 +12,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-latest, macos-latest]
+        os: [macos-latest]
     env:
           CIBW_BUILD_VERBOSITY: 3
-          CIBW_BUILD: "cp311-manylinux_x86_64 cp311-macosx_x86_64 cp311-win_amd64"
+          CIBW_BUILD: "cp311-macosx_x86_64"
           CIBW_SKIP: ""
           CIBW_BEFORE_ALL_LINUX: "yum install -y swig cmake"
           CIBW_BEFORE_ALL_WINDOWS: "choco install visualstudio2017buildtools -f -y && choco install cmake -f -y --installargs 'ADD_CMAKE_TO_PATH=System' && choco install ninja -f -y"
